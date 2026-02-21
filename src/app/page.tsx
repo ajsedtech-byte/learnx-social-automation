@@ -1,101 +1,118 @@
-import Image from "next/image";
+"use client";
+import { useTier } from "@/context/TierContext";
+import { TIERS } from "@/lib/types";
+import Header from "@/components/layout/Header";
+import RoleSection from "@/components/layout/RoleSection";
+import StorybookDash from "@/components/dashboard/StorybookDash";
+import ExplorerDash from "@/components/dashboard/ExplorerDash";
+import StudioDash from "@/components/dashboard/StudioDash";
+import BoardDash from "@/components/dashboard/BoardDash";
+import ProDash from "@/components/dashboard/ProDash";
+import ParentPage from "@/app/parent/page";
+import TeacherPage from "@/app/teacher/page";
+import SchoolAdminPage from "@/app/school-admin/page";
+import AdminPage from "@/app/admin/page";
+import { EmbeddedProvider } from "@/context/EmbeddedContext";
+
+const DASHBOARDS = {
+  storybook: StorybookDash,
+  explorer: ExplorerDash,
+  studio: StudioDash,
+  board: BoardDash,
+  pro: ProDash,
+};
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { tier } = useTier();
+  const tierConfig = TIERS[tier];
+  const DashComponent = DASHBOARDS[tier];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <>
+      <Header />
+      <div className="min-h-screen bg-navy text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+          {/* Page title */}
+          <div className="text-center mb-8">
+            <h1 className="text-2xl font-bold flex items-center justify-center gap-3">
+              <span className="text-3xl">{tierConfig.emoji}</span>
+              {tierConfig.classes}
+              <span className="text-slate-500 font-normal text-lg">·</span>
+              <span className="text-slate-400 font-medium text-lg">
+                {tierConfig.label}
+              </span>
+            </h1>
+            <p className="text-sm text-slate-500 mt-1">
+              {tierConfig.description}
+            </p>
+            <p className="text-xs text-slate-600 mt-0.5">
+              All user perspectives for this class group
+            </p>
+          </div>
+
+          {/* Role sections — collapsible accordion */}
+          <div className="space-y-4">
+            <RoleSection
+              label="Student Dashboard"
+              emoji="🎓"
+              accentColor={tierConfig.accentColor}
+              description={`Student view for ${tierConfig.classes} — ${tierConfig.label} tier`}
+              badge="Student"
+              defaultOpen
+            >
+              <DashComponent />
+            </RoleSection>
+
+            <RoleSection
+              label="Parent Dashboard"
+              emoji="👨‍👩‍👧"
+              accentColor="#2dd4bf"
+              description={`Parent monitoring view for a ${tierConfig.classes} student`}
+              badge="Parent"
+            >
+              <EmbeddedProvider>
+                <ParentPage />
+              </EmbeddedProvider>
+            </RoleSection>
+
+            <RoleSection
+              label="Teacher Portal"
+              emoji="📚"
+              accentColor="#f59e0b"
+              description="Class analytics, student progress & mistake patterns"
+              badge="Teacher"
+            >
+              <EmbeddedProvider>
+                <TeacherPage />
+              </EmbeddedProvider>
+            </RoleSection>
+
+            <RoleSection
+              label="School Admin"
+              emoji="🏫"
+              accentColor="#ec4899"
+              description="KPIs, classes, teachers, students & reports"
+              badge="School"
+            >
+              <EmbeddedProvider>
+                <SchoolAdminPage />
+              </EmbeddedProvider>
+            </RoleSection>
+
+            <RoleSection
+              label="Super Admin"
+              emoji="👑"
+              accentColor="#a855f7"
+              description="Platform-wide analytics & system configuration"
+              badge="Platform"
+            >
+              <EmbeddedProvider>
+                <AdminPage />
+              </EmbeddedProvider>
+            </RoleSection>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </>
   );
 }

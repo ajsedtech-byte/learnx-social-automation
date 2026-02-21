@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LearnX Social Media — Full Content Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Noto Sans Devanagari',sans-serif;background:#060a14;color:#e2e8f0;padding:0}
+
+/* Navigation */
+.nav{position:sticky;top:0;z-index:1000;background:rgba(6,10,20,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);padding:12px 20px;display:flex;align-items:center;gap:16px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:#64748b;font-size:11px;font-weight:600;text-decoration:none;white-space:nowrap;letter-spacing:.5px;padding:6px 12px;border-radius:20px;transition:all .2s}
+.nav a:hover,.nav a.active{color:#2dd4bf;background:rgba(45,212,191,.08)}
+.nav-logo{height:22px;opacity:.7;margin-right:8px;flex-shrink:0}
+
+/* Hero */
+.hero{text-align:center;padding:80px 20px 60px;max-width:700px;margin:0 auto}
+.hero h1{font-size:36px;color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:800;margin-bottom:12px;line-height:1.2}
+.hero h1 span{background:linear-gradient(135deg,#2dd4bf,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:14px;color:#64748b;line-height:1.8;max-width:520px;margin:0 auto}
+
+/* Stats bar */
+.stats-bar{display:flex;justify-content:center;gap:32px;padding:24px 20px;margin-bottom:40px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-size:32px;font-weight:900;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#2dd4bf,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:10px;color:#475569;letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+
+/* Section */
+.section{padding:60px 20px 80px;max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:40px}
+.section-badge{display:inline-block;font-size:9px;color:#f59e0b;letter-spacing:4px;text-transform:uppercase;font-weight:700;background:rgba(245,158,11,.08);padding:6px 14px;border-radius:20px;margin-bottom:12px}
+.section-title{font-size:24px;color:#f1f5f9;font-family:'Space Grotesk',sans-serif;font-weight:700;margin-bottom:6px}
+.section-subtitle{font-size:12px;color:#475569;max-width:500px;margin:0 auto;line-height:1.6}
+.section-count{font-size:11px;color:#6366f1;font-weight:600;margin-top:8px}
+
+/* Card grid */
+.card-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px}
+
+/* Post card base */
+.post{position:relative;overflow:hidden;border-radius:16px}
+.logo-sm{position:absolute;bottom:14px;right:16px;height:22px;opacity:.6;z-index:100}
+
+/* Why box */
+.why-box{max-width:600px;margin:20px auto 0;background:rgba(245,158,11,.04);border-left:3px solid #f59e0b;padding:12px 16px;text-align:left;border-radius:0 8px 8px 0}
+.why-box p{font-size:11px;color:#94a3b8;line-height:1.6}
+.why-box strong{color:#fbbf24}
+
+/* Caption box */
+.caption-box{max-width:520px;margin:12px auto 0;text-align:left;background:rgba(255,255,255,.02);border-radius:10px;padding:14px;border:1px solid rgba(255,255,255,.04)}
+.caption-box p{color:#94a3b8;font-size:11px;line-height:1.7;white-space:pre-wrap}
+
+/* Divider */
+.divider{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);margin:0}
+
+/* Tweet style */
+.tweet{max-width:460px;width:100%;background:#111;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px;text-align:left}
+.tweet-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.tweet-avatar{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0c1222,#14b8a6);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tweet-avatar img{height:20px;opacity:.8}
+.tweet-name{font-size:13px;color:#f1f5f9;font-weight:700}
+.tweet-handle{font-size:10px;color:#475569}
+.tweet-body{font-size:15px;color:#e2e8f0;line-height:1.55}
+.tweet-time{margin-top:12px;font-size:11px;color:#475569}
+
+/* WhatsApp card */
+.wa-card{width:280px;border-radius:12px;overflow:hidden;text-align:left}
+.wa-card-body{padding:20px}
+.wa-card h3{font-size:15px;font-weight:800;margin-bottom:8px;line-height:1.3}
+.wa-card p{font-size:11px;line-height:1.6;opacity:.85}
+
+/* LinkedIn */
+.linkedin-post{max-width:520px;width:100%;background:#111;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px;text-align:left}
+.linkedin-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.linkedin-body{font-size:13px;color:#cbd5e1;line-height:1.8}
+.linkedin-body .line{margin-bottom:8px}
+.linkedin-body .line-bold{color:#f1f5f9;font-weight:600}
+
+/* Reel script */
+.reel-card{width:260px;height:460px;border-radius:20px;overflow:hidden;position:relative;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)}
+.reel-badge{position:absolute;top:12px;left:12px;font-size:8px;color:#fff;background:rgba(255,255,255,.15);padding:4px 8px;border-radius:10px;backdrop-filter:blur(4px);z-index:10}
+.reel-content{display:flex;flex-direction:column;justify-content:flex-end;height:100%;padding:20px;background:linear-gradient(transparent 30%,rgba(0,0,0,.9))}
+.reel-hook{font-size:14px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:8px}
+.reel-desc{font-size:10px;color:#94a3b8;line-height:1.5}
+.reel-cta{font-size:9px;color:#2dd4bf;margin-top:8px;font-weight:600}
+
+/* Launch timeline */
+.timeline{max-width:600px;margin:0 auto;position:relative}
+.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(#2dd4bf,#6366f1,#f59e0b)}
+.timeline-item{padding-left:52px;margin-bottom:28px;position:relative}
+.timeline-dot{position:absolute;left:13px;top:4px;width:16px;height:16px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center}
+.timeline-dot span{width:6px;height:6px;border-radius:50%}
+.timeline-day{font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:4px}
+.timeline-title{font-size:15px;color:#f1f5f9;font-weight:700;margin-bottom:4px}
+.timeline-desc{font-size:11px;color:#64748b;line-height:1.6}
+
+/* Summary grid */
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;max-width:800px;margin:0 auto}
+.summary-card{background:rgba(255,255,255,.03);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,.04)}
+.summary-card-num{font-size:28px;font-weight:900;font-family:'Space Grotesk';background:linear-gradient(135deg,#2dd4bf,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.summary-card-title{font-size:13px;color:#f1f5f9;font-weight:700;margin-top:4px}
+.summary-card-desc{font-size:10px;color:#64748b;margin-top:4px;line-height:1.5}
+
+/* Engagement post */
+.engagement-post{width:380px;min-height:360px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:32px;text-align:center}
+
+@media(max-width:768px){
+  .hero h1{font-size:26px}
+  .stats-bar{gap:20px}
+  .stat-num{font-size:24px}
+  .card-row{gap:12px}
+  .tweet,.linkedin-post{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav">
+  <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="nav-logo" alt="LX" onerror="this.style.display='none'">
+  <a href="#data-drops">Data Drops</a>
+  <a href="#confessions">Confessions</a>
+  <a href="#overheard">Overheard</a>
+  <a href="#engagement">Engagement</a>
+  <a href="#wrapped">Wrapped</a>
+  <a href="#moment">Moment Marketing</a>
+  <a href="#tweets">Tweets</a>
+  <a href="#reels">Reels</a>
+  <a href="#linkedin">LinkedIn</a>
+  <a href="#launch">Launch Sequence</a>
+  <a href="#whatsapp">WhatsApp</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <h1>LearnX <span>Content Collection</span></h1>
+  <p>170+ content pieces across 11 series. Every post modeled on a proven viral pattern from Zomato, Blinkit, Amul, Swiggy, Spotify, Netflix India, and Duolingo. Hinglish, emotion-first, designed for Indian parents and students.</p>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">170+</div><div class="stat-label">Total Posts</div></div>
+  <div class="stat-item"><div class="stat-num">11</div><div class="stat-label">Content Series</div></div>
+  <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">Viral Patterns</div></div>
+  <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Platforms</div></div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     1: DATA DROPS
+     ═══════════════════════════════════════════════════ -->
+<div class="section" id="data-drops">
+  <div class="section-header">
+    <div class="section-badge">SERIES 1 · BLINKIT PATTERN</div>
+    <div class="section-title">"LearnX Data Drops"</div>
+    <div class="section-subtitle">Real app data + one big number + cheeky Hinglish punchline. Like Blinkit's viral billboards. People share because the numbers are surprising and the copy is funny.</div>
+    <div class="section-count">15 posts · Weekly series · Instagram + Twitter + WhatsApp</div>
+  </div>
+
+  <div class="card-row">
+    <div class="post" style="width:280px;height:370px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#f59e0b"></div>
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:28px;text-align:center">
+        <div style="font-size:9px;color:#f59e0b;letter-spacing:4px;margin-bottom:20px;font-weight:700">LEARNX DATA DROP</div>
+        <div style="font-size:60px;font-weight:900;color:#fff;font-family:'Space Grotesk';line-height:1;margin-bottom:6px">11:47 PM</div>
+        <div style="font-size:13px;color:#94a3b8;line-height:1.4;margin-bottom:16px">Peak study hour on LearnX.</div>
+        <div style="font-size:12px;color:#2dd4bf;line-height:1.5;max-width:220px">
+          Beta soja — "Haan mummy,<br>bas 5 minute." Since 2024.
+        </div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="post" style="width:280px;height:370px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#2dd4bf"></div>
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:28px;text-align:center">
+        <div style="font-size:9px;color:#2dd4bf;letter-spacing:4px;margin-bottom:20px;font-weight:700">LEARNX DATA DROP</div>
+        <div style="font-size:13px;color:#64748b;margin-bottom:6px">Most replayed lesson:</div>
+        <div style="font-size:22px;font-weight:900;color:#fff;font-family:'Space Grotesk';line-height:1.2;margin-bottom:4px">"Reproduction in<br>Living Organisms"</div>
+        <div style="font-size:13px;color:#2dd4bf;margin-bottom:12px">14,73,892 replays.</div>
+        <div style="font-size:12px;color:#475569;line-height:1.5">Relax aunties.<br>They're actually studying. 😌</div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="post" style="width:280px;height:370px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#fb7185"></div>
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:28px;text-align:center">
+        <div style="font-size:9px;color:#fb7185;letter-spacing:4px;margin-bottom:20px;font-weight:700">LEARNX DATA DROP</div>
+        <div style="font-size:56px;font-weight:900;color:#fff;font-family:'Space Grotesk';line-height:1;margin-bottom:6px">38%</div>
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:12px">Wrote "Canberra" then changed<br>it to "Sydney."</div>
+        <div style="font-size:12px;color:#fb7185;line-height:1.5">Sahi tha beta.<br>Confidence bhi toh revise karo.</div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="post" style="width:280px;height:370px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#6366f1"></div>
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:28px;text-align:center">
+        <div style="font-size:9px;color:#6366f1;letter-spacing:4px;margin-bottom:20px;font-weight:700">LEARNX DATA DROP</div>
+        <div style="font-size:48px;font-weight:900;color:#fff;font-family:'Space Grotesk';line-height:1;margin-bottom:6px">2.84 Cr</div>
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:12px">Questions solved this month.</div>
+        <div style="font-size:12px;color:#6366f1;line-height:1.5">Itne sawaal toh Sharma ji<br>bhi nahi poochte.</div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <div class="why-box">
+    <p><strong>12 more Data Drops in the full series</strong> — including Hindi Literature skips (7x more than Maths — "Premchand ji, we're sorry"), integration replays ("samajh nahi aa raha, lekin commitment toh dekho"), study breaks vs study time, Class 6 outlearning Class 12, and the 6:14 PM quit time ("Mummy ne bola khaana kha le"). Each one is a standalone viral moment.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     2: CONFESSIONS
+     ═══════════════════════════════════════════════════ -->
+<div class="section" id="confessions">
+  <div class="section-header">
+    <div class="section-badge">SERIES 2 · NETFLIX INDIA RAW PATTERN</div>
+    <div class="section-title">"Student Confessions"</div>
+    <div class="section-subtitle">Notes-app aesthetic. Anonymous student voices. No polish, no design. Viral because every student thinks "that's literally me." 40% have natural LearnX product tie-ins.</div>
+    <div class="section-count">15 posts · Sunday series · Instagram + Twitter</div>
+  </div>
+
+  <div class="card-row">
+    <div class="post" style="width:320px;background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px">
+      <div style="padding:20px">
+        <div style="font-size:10px;color:#6366f1;letter-spacing:2px;font-weight:600;margin-bottom:12px">CONFESSION #1 · CLASS 9 · ANONYMOUS</div>
+        <div style="font-size:14px;color:#e2e8f0;line-height:1.7">
+          Meri mummy ko lagta hai main 4 ghante padhta hoon.
+          <br><br>
+          Actual breakdown:<br>
+          — 45 min setting up "study area"<br>
+          — 30 min finding the right playlist to "focus"<br>
+          — 1 hour phone (but it was on the desk so technically study time)<br>
+          — 20 min snack break<br>
+          — <span style="color:#2dd4bf;font-weight:700">15 min actual padhai</span>
+          <br><br>
+          <span style="color:#64748b;font-size:13px">Then I tell myself "kal se seriously."<br>Kal kabhi nahi aata.</span>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.04);padding:10px 20px;display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:10px;color:#475569">via LearnX Confessions</div>
+        <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:16px;opacity:.4" alt="LearnX" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <div class="post" style="width:320px;background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px">
+      <div style="padding:20px">
+        <div style="font-size:10px;color:#f59e0b;letter-spacing:2px;font-weight:600;margin-bottom:12px">CONFESSION #8 · CLASS 8 · ANONYMOUS</div>
+        <div style="font-size:14px;color:#e2e8f0;line-height:1.7">
+          LearnX pe Mistake Genome dekhne ka galti kar di.
+          <br><br>
+          Pata chala ki meri 70% mistakes ek hi type ki hain. Fractions mein sign change bhool jaata hoon. Baar baar baar baar.
+          <br><br>
+          Pehle lagta tha main maths mein overall weak hoon. Actually sirf <span style="color:#2dd4bf;font-weight:700">ek chhoti si habit</span> thi.
+          <br><br>
+          2 hafte focus kiya sirf uspe.<br>
+          <span style="color:#2dd4bf;font-weight:700">Test score 38 se 71 ho gaya.</span>
+          <br><br>
+          <span style="color:#64748b;font-size:13px">Main toh poora maths chhod deta.</span>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.04);padding:10px 20px;display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:10px;color:#475569">via LearnX Confessions</div>
+        <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:16px;opacity:.4" alt="LearnX" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <div class="post" style="width:320px;background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px">
+      <div style="padding:20px">
+        <div style="font-size:10px;color:#fb7185;letter-spacing:2px;font-weight:600;margin-bottom:12px">CONFESSION #10 · CLASS 10 · ANONYMOUS</div>
+        <div style="font-size:14px;color:#e2e8f0;line-height:1.7">
+          The WhatsApp group 1 night before exam:
+          <br><br>
+          <span style="color:#a5b4fc">"Bro chapter 7 aayega kya?"</span><br>
+          <span style="color:#94a3b8">"Pata nahi yaar"</span><br>
+          <span style="color:#a5b4fc">"Sharma ne bola skip karo"</span><br>
+          <span style="color:#94a3b8">"Haan but Sharma toh sab padhta hai"</span><br>
+          <span style="color:#a5b4fc">"WHAT. 5 important hai?!"</span>
+          <br><br>
+          <span style="color:#64748b;font-size:12px">*3 AM*</span><br>
+          <span style="color:#94a3b8">"Koi jaag raha hai?"</span><br>
+          <span style="color:#a5b4fc">"Kuch padha?"</span><br>
+          <span style="color:#94a3b8">"Nahi"</span><br>
+          <span style="color:#a5b4fc">"Same"</span><br>
+          <span style="color:#94a3b8">"Goodnight bro"</span><br>
+          <span style="color:#a5b4fc">"All the best"</span>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.04);padding:10px 20px;display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:10px;color:#475569">via LearnX Confessions</div>
+        <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:16px;opacity:.4" alt="LearnX" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+
+  <div class="why-box">
+    <p><strong>12 more Confessions in the full series</strong> — including the SPARK spatial intelligence discovery, the topper who says "kuch nahi padha" (then gets 96), board exam timetable delusion ("14th timetable this month — color coded, beautiful, 0.8 productive hours"), drawing-loving kid validated by SPARK ("Pehli baar unhone bola 'acha... toh ye bhi intelligence hai'"), and the invisible "average" student who discovers they're top 12%.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     3: OVERHEARD IN SCHOOLS
+     ═══════════════════════════════════════════════════ -->
+<div class="section" id="overheard">
+  <div class="section-header">
+    <div class="section-badge">SERIES 3 · CULTURAL HIJACKING PATTERN</div>
+    <div class="section-title">"Overheard in Indian Schools"</div>
+    <div class="section-subtitle">Chat-bubble dialogues with narrator punchlines. Every Indian has lived these moments. 33% have natural product tie-ins.</div>
+    <div class="section-count">15 posts · Thursday series · Instagram + WhatsApp</div>
+  </div>
+
+  <div class="card-row">
+    <div class="post" style="width:330px;min-height:380px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)">
+      <div style="display:flex;flex-direction:column;justify-content:center;min-height:380px;padding:28px">
+        <div style="font-size:9px;color:#6366f1;letter-spacing:3px;margin-bottom:20px;font-weight:700;text-align:center">OVERHEARD IN CLASS 10</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="align-self:flex-start;background:rgba(99,102,241,.1);border-radius:14px 14px 14px 4px;padding:8px 14px;max-width:80%">
+            <div style="font-size:12px;color:#a5b4fc">bro tune padha?</div>
+          </div>
+          <div style="align-self:flex-end;background:rgba(45,212,191,.1);border-radius:14px 14px 4px 14px;padding:8px 14px;max-width:80%">
+            <div style="font-size:12px;color:#2dd4bf">nahi yaar</div>
+          </div>
+          <div style="align-self:flex-start;background:rgba(99,102,241,.1);border-radius:14px 14px 14px 4px;padding:8px 14px;max-width:80%">
+            <div style="font-size:12px;color:#a5b4fc">same</div>
+          </div>
+          <div style="align-self:flex-end;background:rgba(45,212,191,.1);border-radius:14px 14px 4px 14px;padding:8px 14px;max-width:80%">
+            <div style="font-size:12px;color:#2dd4bf">chal koi nahi, raat ko karenge</div>
+          </div>
+          <div style="align-self:flex-start;background:rgba(99,102,241,.1);border-radius:14px 14px 14px 4px;padding:8px 14px;max-width:80%">
+            <div style="font-size:12px;color:#a5b4fc">haan same plan 💪</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:16px;font-size:12px;color:#475569;line-height:1.5;font-style:italic">
+          Narrator: They did not, in fact,<br>study that night.
+        </div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:18px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="post" style="width:330px;min-height:380px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)">
+      <div style="display:flex;flex-direction:column;justify-content:center;min-height:380px;padding:28px">
+        <div style="font-size:9px;color:#f59e0b;letter-spacing:3px;margin-bottom:20px;font-weight:700;text-align:center">OVERHEARD AT PTM</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="align-self:flex-start;background:rgba(245,158,11,.1);border-radius:14px 14px 14px 4px;padding:10px 14px;max-width:88%">
+            <div style="font-size:9px;color:#fbbf24;margin-bottom:2px;font-weight:600">Teacher</div>
+            <div style="font-size:12px;color:#fbbf24">"Aarav is bright but doesn't pay attention."</div>
+          </div>
+          <div style="align-self:flex-start;background:rgba(255,255,255,.03);border-radius:14px 14px 14px 4px;padding:10px 14px;max-width:88%">
+            <div style="font-size:9px;color:#94a3b8;margin-bottom:2px;font-weight:600">Translation</div>
+            <div style="font-size:12px;color:#94a3b8">"Aarav's brain works differently than how I teach."</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:20px;font-size:12px;color:#94a3b8;line-height:1.5;max-width:260px;margin-left:auto;margin-right:auto">
+          LearnX has <span style="color:#2dd4bf;font-weight:700">27 ways</span> to teach one concept.<br>One of them will click for Aarav.
+        </div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:18px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="post" style="width:330px;min-height:380px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)">
+      <div style="display:flex;flex-direction:column;justify-content:center;min-height:380px;padding:28px">
+        <div style="font-size:9px;color:#fb7185;letter-spacing:3px;margin-bottom:20px;font-weight:700;text-align:center">OVERHEARD IN MOM'S WHATSAPP GROUP</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="align-self:flex-start;background:rgba(251,113,133,.08);border-radius:14px 14px 14px 4px;padding:8px 14px;max-width:85%">
+            <div style="font-size:9px;color:#fb7185;margin-bottom:2px;font-weight:600">Sunita Aunty</div>
+            <div style="font-size:12px;color:#fda4af">Mera beta 95% laya! 🎉🎉🎉</div>
+          </div>
+          <div style="align-self:flex-start;background:rgba(251,113,133,.08);border-radius:14px 14px 14px 4px;padding:8px 14px;max-width:85%">
+            <div style="font-size:9px;color:#fb7185;margin-bottom:2px;font-weight:600">Pooja Aunty</div>
+            <div style="font-size:12px;color:#fda4af">Very good! Mera bhi 92% 🙏</div>
+          </div>
+          <div style="align-self:flex-start;background:rgba(251,113,133,.08);border-radius:14px 14px 14px 4px;padding:8px 14px;max-width:85%">
+            <div style="font-size:9px;color:#fb7185;margin-bottom:2px;font-weight:600">Deepa Aunty</div>
+            <div style="font-size:12px;color:#94a3b8">*left the group*</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:16px;font-size:12px;color:#475569;line-height:1.5;font-style:italic">
+          Strategic WhatsApp Retreat:<br>The most powerful move in Indian parenting.
+        </div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:18px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     4: ENGAGEMENT
+     ═══════════════════════════════════════════════════ -->
+<div class="section" id="engagement">
+  <div class="section-header">
+    <div class="section-badge">SERIES 4 · SWIGGY WITASA PATTERN</div>
+    <div class="section-title">"Wrong Answers Only" + Engagement Posts</div>
+    <div class="section-subtitle">One question. Infinite funny answers in comments. People compete to be the wittiest. Every comment = algorithm fuel = massive reach.</div>
+    <div class="section-count">15 posts (8 Wrong Answers + 4 Finish This Sentence + 3 This or That) · Friday series</div>
+  </div>
+
+  <div class="card-row">
+    <div class="engagement-post">
+      <div style="font-size:9px;color:#fb7185;letter-spacing:4px;margin-bottom:20px;font-weight:700">⚠️ WRONG ANSWERS ONLY</div>
+      <div style="font-size:24px;font-weight:900;color:#fff;font-family:'Space Grotesk';line-height:1.3;margin-bottom:16px">
+        What did your parents say<br>when you told them you want<br>to do <span style="color:#f59e0b">Arts instead of Science?</span>
+      </div>
+      <div style="font-size:13px;color:#475569">Wrong answers only. 👇</div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="engagement-post">
+      <div style="font-size:9px;color:#6366f1;letter-spacing:4px;margin-bottom:20px;font-weight:700">FINISH THIS SENTENCE</div>
+      <div style="font-size:22px;font-weight:900;color:#fff;font-family:'Space Grotesk';line-height:1.3;margin-bottom:16px">
+        It's 8 PM the night before<br>the exam and you<br><span style="color:#6366f1">still haven't _____</span>
+      </div>
+      <div style="font-size:13px;color:#475569">We'll go first: "opened the textbook." 💀</div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="engagement-post">
+      <div style="font-size:9px;color:#2dd4bf;letter-spacing:4px;margin-bottom:20px;font-weight:700">THIS OR THAT</div>
+      <div style="font-size:22px;font-weight:900;color:#fff;font-family:'Space Grotesk';line-height:1.3;margin-bottom:16px">
+        <span style="color:#f59e0b">Raat ko 2 baje padho</span><br>
+        <span style="font-size:16px;color:#475569">— or —</span><br>
+        <span style="color:#6366f1">Subah 4 baje uthke padho</span>
+      </div>
+      <div style="font-size:13px;color:#475569">Pick your fighter. 🥊</div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     5: LEARNX WRAPPED
+     ═══════════════════════════════════════════════════ -->
+<div class="section" id="wrapped">
+  <div class="section-header">
+    <div class="section-badge">SERIES 5 · SPOTIFY WRAPPED PATTERN</div>
+    <div class="section-title">"LearnX Wrapped" — Personalized Stats</div>
+    <div class="section-subtitle">Monthly personalized cards parents share because it's about THEIR child. Spotify Wrapped got 60M people to voluntarily share branded content. Same energy.</div>
+    <div class="section-count">12 card templates · Monthly drops · Instagram Stories + WhatsApp Status</div>
+  </div>
+
+  <div class="card-row">
+    <div class="post" style="width:220px;height:390px;background:linear-gradient(135deg,#0c1222 0%,#1a1040 100%);border:none">
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:20px;text-align:center">
+        <div style="font-size:8px;color:#a78bfa;letter-spacing:3px;margin-bottom:14px;font-weight:700">AARAV'S WRAPPED</div>
+        <div style="font-size:44px;font-weight:900;color:#fff;font-family:'Space Grotesk';line-height:1">847</div>
+        <div style="font-size:12px;color:#a78bfa;margin-bottom:16px">questions solved</div>
+        <div style="font-size:11px;color:#64748b;line-height:1.5;max-width:170px">
+          That's more than the number of times Papa said "mere zamane mein..." 🤷
+        </div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:18px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="post" style="width:220px;height:390px;background:linear-gradient(135deg,#0c1222 0%,#0a2520 100%);border:none">
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:20px;text-align:center">
+        <div style="font-size:8px;color:#2dd4bf;letter-spacing:3px;margin-bottom:14px;font-weight:700">TOP STRENGTH</div>
+        <div style="font-size:40px;margin-bottom:6px">🎨</div>
+        <div style="font-size:20px;font-weight:900;color:#fff;font-family:'Space Grotesk'">Creative<br>Intelligence</div>
+        <div style="font-size:11px;color:#2dd4bf;margin-top:6px;margin-bottom:14px">Top 12% nationally</div>
+        <div style="font-size:10px;color:#64748b;line-height:1.5">
+          "Arts mein scope nahi hai" bolne wale, please note. 😉
+        </div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:18px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="post" style="width:220px;height:390px;background:linear-gradient(135deg,#312e81 0%,#1e1b4b 100%);border:none">
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:20px;text-align:center">
+        <div style="font-size:8px;color:#a5b4fc;letter-spacing:3px;margin-bottom:14px;font-weight:700">STUDY PERSONALITY</div>
+        <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Space Grotesk';margin-bottom:10px">The Night Owl 🦉</div>
+        <div style="font-size:11px;color:#a5b4fc;margin-bottom:12px">Most active: 10 PM - 12 AM</div>
+        <div style="font-size:10px;color:#64748b;line-height:1.5">
+          Raat ko neend nahi, knowledge aati hai. 🤫
+        </div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:18px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="post" style="width:220px;height:390px;background:linear-gradient(135deg,#ea580c 0%,#dc2626 100%);border:none">
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:20px;text-align:center">
+        <div style="font-size:8px;color:rgba(255,255,255,.7);letter-spacing:3px;margin-bottom:14px;font-weight:700">STREAK CARD</div>
+        <div style="font-size:52px;font-weight:900;color:#fff;font-family:'Space Grotesk';line-height:1">30</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.8);margin-bottom:14px">day streak 🔥</div>
+        <div style="font-size:10px;color:rgba(255,255,255,.6);line-height:1.5">
+          That's longer than most<br>New Year's resolutions.<br>And Papa's gym streak.
+        </div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:18px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="post" style="width:220px;height:390px;background:linear-gradient(135deg,#fbbf24 0%,#fda4af 100%);border:none">
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:20px;text-align:center">
+        <div style="font-size:8px;color:rgba(0,0,0,.5);letter-spacing:3px;margin-bottom:14px;font-weight:700">SHOW MUMMY COUNT</div>
+        <div style="font-size:44px;font-weight:900;color:#0c1222;font-family:'Space Grotesk';line-height:1">34</div>
+        <div style="font-size:12px;color:rgba(0,0,0,.6);margin-bottom:14px">times pressed "Show Mummy"</div>
+        <div style="font-size:10px;color:rgba(0,0,0,.45);line-height:1.5">
+          34 moments of "Mummy dekho main kya kar sakta hoon!"<br><br>Frame this card. ❤️
+        </div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:18px;opacity:.3" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <div class="why-box">
+    <p><strong>7 more Wrapped cards in the full series</strong> — including Most Improved Subject ("From 'I hate Maths' to 'wait, Maths is actually fun?' in 3 weeks"), Fastest Solve ("Calculator would've taken longer. Seriously."), Mistake Mastery ("Galtiyon ka doctor — 50 mistakes turned into strengths"), Knowledge Garden ("Ancient forest energy. Deep roots. Unshakeable knowledge"), Revision Champion, Most Studied Subject, and the big Year in Review annual card.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     6: MOMENT MARKETING
+     ═══════════════════════════════════════════════════ -->
+<div class="section" id="moment">
+  <div class="section-header">
+    <div class="section-badge">SERIES 6 · AMUL / FEVICOL PATTERN</div>
+    <div class="section-title">Moment Marketing — Fast Topical Posts</div>
+    <div class="section-subtitle">When something trends in India — IPL, board exams, Diwali, viral memes — LearnX reacts with wit within 4 hours. Education twist that feels like a punchline, not a pitch.</div>
+    <div class="section-count">20 templates for predictable events · Saturday + reactive · All platforms</div>
+  </div>
+
+  <div class="card-row">
+    <div class="post" style="width:340px;height:360px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)">
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:28px;text-align:center">
+        <div style="font-size:9px;color:#f59e0b;letter-spacing:3px;margin-bottom:12px;font-weight:700">IPL 2026</div>
+        <div style="font-size:22px;font-weight:800;color:#f1f5f9;line-height:1.3;margin-bottom:12px;font-family:'Space Grotesk'">Century toh century hoti hai<br>— pitch ho ya paper.</div>
+        <div style="font-size:14px;color:#94a3b8;line-height:1.5;margin-bottom:14px">Kohli practises 1000 balls.<br>Toppers practise 1000 questions.</div>
+        <div style="font-size:13px;color:#2dd4bf;font-weight:600">No shortcuts. 🏏</div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="post" style="width:340px;height:360px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)">
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:28px;text-align:center">
+        <div style="font-size:9px;color:#fb7185;letter-spacing:3px;margin-bottom:12px;font-weight:700">VALENTINE'S DAY</div>
+        <div style="font-size:20px;font-weight:800;color:#f1f5f9;line-height:1.3;margin-bottom:12px;font-family:'Space Grotesk'">Pyaar toh sab karte hain.<br>Maths se pyaar —<br><span style="color:#fb7185">sirf topper karta hai.</span></div>
+        <div style="font-size:13px;color:#94a3b8;line-height:1.5;margin-bottom:14px">This Valentine's, commit to the<br>one who'll never leave you: your syllabus.</div>
+        <div style="font-size:12px;color:#475569">Roses are red, violets are blue,<br>board exams are coming,<br>and so is your breakthrough. ❤️</div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="post" style="width:340px;height:360px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)">
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:28px;text-align:center">
+        <div style="font-size:9px;color:#f59e0b;letter-spacing:3px;margin-bottom:12px;font-weight:700">BOLLYWOOD TEMPLATE</div>
+        <div style="font-size:22px;font-weight:800;color:#f1f5f9;line-height:1.3;margin-bottom:12px;font-family:'Space Grotesk'">"Pushpa naam sunega toh...<br><span style="color:#f59e0b">marks jhuk jayenge."</span></div>
+        <div style="font-size:14px;color:#94a3b8;line-height:1.5;margin-bottom:14px">Pushpa nahi — Padhai.<br>Thaggede le.</div>
+        <div style="font-size:12px;color:#2dd4bf;font-weight:600">Jhukega nahi — mera score. 🎬</div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <div class="why-box">
+    <p><strong>17 more templates in the full series</strong> — covering Board Results Day, NEET/JEE, Independence Day, Teachers' Day, Diwali, Holi, Republic Day, New Year, Summer Vacation, Exam Datesheet, Monsoon, Cricket World Cup, Children's Day, School Reopening, Mother's/Father's Day, Year-End, and a generic Viral Meme Framework. Plus a 4-hour operations playbook and kill-switch criteria.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     7: TWEETS
+     ═══════════════════════════════════════════════════ -->
+<div class="section" id="tweets">
+  <div class="section-header">
+    <div class="section-badge">SERIES 7 · ZOMATO / DUOLINGO PATTERN</div>
+    <div class="section-title">Raw Brand Voice Tweets</div>
+    <div class="section-subtitle">No design. Just voice. Sound like a person, not a marketing calendar. Self-deprecating, opinionated, and occasionally so warm it hurts.</div>
+    <div class="section-count">25 tweets (10 funny + 8 hot takes + 7 warm) · Tuesday series · Twitter/X</div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+
+    <div class="tweet">
+      <div class="tweet-header">
+        <div class="tweet-avatar"><img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:20px" alt="LX" onerror="this.parentElement.textContent='LX'"></div>
+        <div><div class="tweet-name">LearnX</div><div class="tweet-handle">@learnx_app</div></div>
+        <div style="margin-left:auto;font-size:9px;color:#f59e0b;font-weight:700;background:rgba(245,158,11,.1);padding:3px 8px;border-radius:10px">FUNNY</div>
+      </div>
+      <div class="tweet-body">We built an AI that detects the exact misconception behind every wrong answer. Parents call it "the app." We cry a little. But okay. 🥲</div>
+      <div class="tweet-time">11:33 PM · Mar 15, 2026</div>
+    </div>
+
+    <div class="tweet">
+      <div class="tweet-header">
+        <div class="tweet-avatar"><img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:20px" alt="LX" onerror="this.parentElement.textContent='LX'"></div>
+        <div><div class="tweet-name">LearnX</div><div class="tweet-handle">@learnx_app</div></div>
+        <div style="margin-left:auto;font-size:9px;color:#f59e0b;font-weight:700;background:rgba(245,158,11,.1);padding:3px 8px;border-radius:10px">FUNNY</div>
+      </div>
+      <div class="tweet-body">LearnX usage drops 97% during an India match. We don't take it personally. We also stopped working and watched.<br><br>We're an education company btw.</div>
+      <div class="tweet-time">9:47 PM · Jun 8, 2026</div>
+    </div>
+
+    <div class="tweet">
+      <div class="tweet-header">
+        <div class="tweet-avatar"><img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:20px" alt="LX" onerror="this.parentElement.textContent='LX'"></div>
+        <div><div class="tweet-name">LearnX</div><div class="tweet-handle">@learnx_app</div></div>
+        <div style="margin-left:auto;font-size:9px;color:#fb7185;font-weight:700;background:rgba(251,113,133,.1);padding:3px 8px;border-radius:10px">HOT TAKE</div>
+      </div>
+      <div class="tweet-body">Report cards measure what a child remembers on one specific day in one specific format under maximum stress.<br><br>We call this "assessment."<br><br>I call it a screenshot of a movie and pretending you've seen the whole film.</div>
+      <div class="tweet-time">2:47 PM · Feb 21, 2026</div>
+    </div>
+
+    <div class="tweet">
+      <div class="tweet-header">
+        <div class="tweet-avatar"><img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:20px" alt="LX" onerror="this.parentElement.textContent='LX'"></div>
+        <div><div class="tweet-name">LearnX</div><div class="tweet-handle">@learnx_app</div></div>
+        <div style="margin-left:auto;font-size:9px;color:#fb7185;font-weight:700;background:rgba(251,113,133,.1);padding:3px 8px;border-radius:10px">HOT TAKE</div>
+      </div>
+      <div class="tweet-body">Unpopular opinion: "Weak in Maths" is not a personality trait. It's a misdiagnosis. Somewhere between fractions and integers, someone didn't catch the one concept that cracked. Everything after that was just falling dominoes.</div>
+      <div class="tweet-time">4:12 PM · Apr 3, 2026</div>
+    </div>
+
+    <div class="tweet">
+      <div class="tweet-header">
+        <div class="tweet-avatar"><img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:20px" alt="LX" onerror="this.parentElement.textContent='LX'"></div>
+        <div><div class="tweet-name">LearnX</div><div class="tweet-handle">@learnx_app</div></div>
+        <div style="margin-left:auto;font-size:9px;color:#2dd4bf;font-weight:700;background:rgba(45,212,191,.1);padding:3px 8px;border-radius:10px">WARM</div>
+      </div>
+      <div class="tweet-body">A mother messaged us last week: "My son showed me his brain profile and said 'See Mummy, I'm not dumb. My brain just works different.'"<br><br>That message is on our office wall now.</div>
+      <div class="tweet-time">10:08 AM · May 12, 2026</div>
+    </div>
+
+    <div class="tweet">
+      <div class="tweet-header">
+        <div class="tweet-avatar"><img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:20px" alt="LX" onerror="this.parentElement.textContent='LX'"></div>
+        <div><div class="tweet-name">LearnX</div><div class="tweet-handle">@learnx_app</div></div>
+        <div style="margin-left:auto;font-size:9px;color:#2dd4bf;font-weight:700;background:rgba(45,212,191,.1);padding:3px 8px;border-radius:10px">WARM</div>
+      </div>
+      <div class="tweet-body">If you're a parent reading this at midnight, worrying about whether your child will be okay — they will. They already have more inside them than any test will ever measure. Your job isn't to fix them. It's to find out what's already there.</div>
+      <div class="tweet-time">12:14 AM · Aug 9, 2026</div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     8: REELS
+     ═══════════════════════════════════════════════════ -->
+<div class="section" id="reels">
+  <div class="section-header">
+    <div class="section-badge">SERIES 8 · SHORT-FORM VIDEO</div>
+    <div class="section-title">Reel / Shorts Scripts</div>
+    <div class="section-subtitle">15-22 second scripts. Hook in 2 seconds. All text on screen (75% watch on mute). Raw > produced. Each script includes scene breakdowns, audio cues, and captions.</div>
+    <div class="section-count">15 scripts (5 Parents vs Reality + 5 Did You Know + 5 Real Moments) · Monday series</div>
+  </div>
+
+  <div class="card-row">
+    <div class="reel-card" style="background:linear-gradient(180deg,#1a1040 0%,#0a0a0a 100%)">
+      <div class="reel-badge">REEL · 18s</div>
+      <div class="reel-content">
+        <div style="font-size:8px;color:#fb7185;letter-spacing:2px;font-weight:700;margin-bottom:8px">PARENTS vs REALITY</div>
+        <div class="reel-hook">"My child studies 3 hours daily"</div>
+        <div class="reel-desc">Split screen reveal: Actual study time: 47 minutes. Break time: 2 hours 13 minutes.<br><br>"But those 47 minutes? Focused. Targeted. Brain-matched."</div>
+        <div class="reel-cta">Quality > quantity. Always.</div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:16px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="reel-card" style="background:linear-gradient(180deg,#0a2520 0%,#0a0a0a 100%)">
+      <div class="reel-badge">REEL · 15s</div>
+      <div class="reel-content">
+        <div style="font-size:8px;color:#2dd4bf;letter-spacing:2px;font-weight:700;margin-bottom:8px">DID YOU KNOW?</div>
+        <div class="reel-hook">61 LAKH kids made the EXACT same mistake</div>
+        <div class="reel-desc">1/2 + 1/3 = 2/5. WRONG. But 61 lakh students wrote this.<br><br>One misunderstanding in Class 5 → years of "I'm bad at Maths."</div>
+        <div class="reel-cta">You're not bad at Maths.</div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:16px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="reel-card" style="background:linear-gradient(180deg,#1c0a0a 0%,#0a0a0a 100%)">
+      <div class="reel-badge">REEL · 20s</div>
+      <div class="reel-content">
+        <div style="font-size:8px;color:#fbbf24;letter-spacing:2px;font-weight:700;margin-bottom:8px">REAL MOMENTS</div>
+        <div class="reel-hook">She pressed "Show Mummy" 47 times this month.</div>
+        <div class="reel-desc">After every practice test. After every small win. Even the ones where she scored 60%.<br><br>She wanted someone to see she was trying.</div>
+        <div class="reel-cta">Built for the moments that don't make report cards.</div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:16px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="reel-card" style="background:linear-gradient(180deg,#0c1222 0%,#0a0a0a 100%)">
+      <div class="reel-badge">REEL · 18s</div>
+      <div class="reel-content">
+        <div style="font-size:8px;color:#a5b4fc;letter-spacing:2px;font-weight:700;margin-bottom:8px">REAL MOMENTS</div>
+        <div class="reel-hook">11:47 PM. A small town. A phone screen glowing in the dark.</div>
+        <div class="reel-desc">No tuition center within 30 km. One phone. Shared with her brother during the day. At 11:47 PM, it's finally hers.</div>
+        <div class="reel-cta">Free means free. For her. For everyone.</div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:16px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="reel-card" style="background:linear-gradient(180deg,#0f172a 0%,#0a0a0a 100%)">
+      <div class="reel-badge">REEL · 22s</div>
+      <div class="reel-content">
+        <div style="font-size:8px;color:#fb7185;letter-spacing:2px;font-weight:700;margin-bottom:8px">REAL MOMENTS</div>
+        <div class="reel-hook">"See Mummy, I'm not dumb. My brain just works different."</div>
+        <div class="reel-desc">His teachers said: "doesn't pay attention." Then he took SPARK. Musical, Naturalistic, Kinesthetic — all exceptional. He wasn't failing. He was being tested in a language his brain doesn't speak.</div>
+        <div class="reel-cta">See them differently. SPARK — free.</div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:16px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     9: LINKEDIN
+     ═══════════════════════════════════════════════════ -->
+<div class="section" id="linkedin">
+  <div class="section-header">
+    <div class="section-badge">SERIES 9 · THOUGHT LEADERSHIP</div>
+    <div class="section-title">LinkedIn Posts</div>
+    <div class="section-subtitle">Line-by-line reflective format. Building-in-public stories, education philosophy, milestone announcements with personality. Not selling — thinking out loud.</div>
+    <div class="section-count">10 posts (4 building stories + 4 thought leadership + 2 milestones)</div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;align-items:center">
+
+    <div class="linkedin-post">
+      <div class="linkedin-header">
+        <div class="tweet-avatar"><img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:20px" alt="LX" onerror="this.parentElement.textContent='LX'"></div>
+        <div><div class="tweet-name">LearnX</div><div class="tweet-handle">Building LearnX · #EdTech</div></div>
+      </div>
+      <div class="linkedin-body">
+        <div class="line line-bold">The most-used feature in LearnX wasn't in our product roadmap.</div>
+        <div class="line">It wasn't the AI tutor. Not the brain profiler. Not the revision scheduler.</div>
+        <div class="line">It was a button.</div>
+        <div class="line">A small button at the bottom of a practice test result screen.</div>
+        <div class="line line-bold">"Share with Parents."</div>
+        <div class="line">A developer added it in a Friday sprint because his daughter kept showing him her school drawings and he thought, "kids want someone to see."</div>
+        <div class="line">We almost removed it. "Not a core feature." "Adds UI clutter."</div>
+        <div class="line">Then the data came in.</div>
+        <div class="line line-bold">9 lakh taps in one year.</div>
+        <div class="line">Kids sharing 60% scores. 45% scores. 90% scores. Not just wins. Everything.</div>
+        <div class="line" style="color:#2dd4bf">They weren't sharing results. They were saying: "See me. I'm trying."</div>
+      </div>
+    </div>
+
+    <div class="linkedin-post">
+      <div class="linkedin-header">
+        <div class="tweet-avatar"><img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:20px" alt="LX" onerror="this.parentElement.textContent='LX'"></div>
+        <div><div class="tweet-name">LearnX</div><div class="tweet-handle">Why We Made It Free · #EducationForAll</div></div>
+      </div>
+      <div class="linkedin-body">
+        <div class="line line-bold">People keep asking why LearnX is free.</div>
+        <div class="line">They expect a clever business answer. A freemium model. A data play.</div>
+        <div class="line">Here's the actual reason:</div>
+        <div class="line">When we were testing in a school in rural Rajasthan, a girl asked if she could use the app at home.</div>
+        <div class="line">We said yes. She asked if it cost money. We said we hadn't decided yet.</div>
+        <div class="line line-bold">She nodded. Put the phone down. Didn't ask again.</div>
+        <div class="line">Her teacher told us: "She assumed it would cost money. Everything good always does. She's learned not to want things she can't have."</div>
+        <div class="line">She was 11 years old.</div>
+        <div class="line" style="color:#2dd4bf">We went back to the office that night and took the pricing model off the whiteboard. It's been free since.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     10: LAUNCH SEQUENCE
+     ═══════════════════════════════════════════════════ -->
+<div class="section" id="launch">
+  <div class="section-header">
+    <div class="section-badge">LAUNCH STRATEGY · SWIGGY + CRED + DUOLINGO PATTERN</div>
+    <div class="section-title">7-Day Launch Sequence</div>
+    <div class="section-subtitle">Not a countdown. A cultural moment. Each day is a mini-viral moment — confusion, data, emotion, reveal, participation, content, FOMO.</div>
+    <div class="section-count">7 days · 5 platforms each · Complete copy for every platform</div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:#2dd4bf"><span style="background:#2dd4bf"></span></div>
+      <div class="timeline-day" style="color:#2dd4bf">DAY 1 · THE WEIRD POST</div>
+      <div class="timeline-title">"Your child has 9 types of intelligence. You're measuring 2."</div>
+      <div class="timeline-desc">No logo. No explanation. Pure confusion. Goal: 50+ comments asking "What is this?"</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:#6366f1"><span style="background:#6366f1"></span></div>
+      <div class="timeline-day" style="color:#6366f1">DAY 2 · THE DATA TEASE</div>
+      <div class="timeline-title">"73% of parents can't name their child's strongest learning style."</div>
+      <div class="timeline-desc">Blinkit billboard format. One massive stat. Still no product reveal.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:#fb7185"><span style="background:#fb7185"></span></div>
+      <div class="timeline-day" style="color:#fb7185">DAY 3 · THE CONFESSION</div>
+      <div class="timeline-title">"I got 89% and my parents said kahan gaye baaki 11 marks?"</div>
+      <div class="timeline-desc">Notes-app screenshot. Raw student voice. The emotional anchor before the reveal.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:#f59e0b"><span style="background:#f59e0b"></span></div>
+      <div class="timeline-day" style="color:#f59e0b">DAY 4 · THE REVEAL</div>
+      <div class="timeline-title">"Introducing LearnX. (No, it's not another coaching app. Sit down.)"</div>
+      <div class="timeline-desc">Full product launch with Zomato-style funny copy. 5-slide Instagram carousel. Maximum shares + link clicks.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:#a78bfa"><span style="background:#a78bfa"></span></div>
+      <div class="timeline-day" style="color:#a78bfa">DAY 5 · THE SPARK CHALLENGE</div>
+      <div class="timeline-title">"Which intelligence type is your child? 68% of parents guessed wrong."</div>
+      <div class="timeline-desc">Swiggy participation mechanic. Story polls. Dinner-table conversation starter.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:#2dd4bf"><span style="background:#2dd4bf"></span></div>
+      <div class="timeline-day" style="color:#2dd4bf">DAY 6 · THE SERIES BEGIN</div>
+      <div class="timeline-title">First Data Drop + First Overheard in Schools</div>
+      <div class="timeline-desc">Establish the weekly content rhythm. Make people follow for the series, not just the launch.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:#fbbf24"><span style="background:#fbbf24"></span></div>
+      <div class="timeline-day" style="color:#fbbf24">DAY 7 · WRAPPED PREVIEW</div>
+      <div class="timeline-title">"Spotify Wrapped, but for your child's brain."</div>
+      <div class="timeline-desc">Show sample Wrapped cards. FOMO drives sign-ups. Monthly viral loop begins.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     11: WHATSAPP FORWARDABLES
+     ═══════════════════════════════════════════════════ -->
+<div class="section" id="whatsapp">
+  <div class="section-header">
+    <div class="section-badge">SERIES 11 · WHATSAPP-FIRST</div>
+    <div class="section-title">WhatsApp Forwardable Cards</div>
+    <div class="section-subtitle">98% open rate. Standalone value — no links needed. Parents forward these to school groups because they make them look informed, caring, or funny. Zero hard sell.</div>
+    <div class="section-count">20 cards (5 Did You Know + 5 Smart Parent Tips + 5 Exam Season + 5 Funny but True)</div>
+  </div>
+
+  <div class="card-row">
+    <div class="wa-card" style="background:linear-gradient(135deg,#0c1222,#1a1040)">
+      <div class="wa-card-body">
+        <div style="font-size:8px;color:#a78bfa;letter-spacing:2px;font-weight:700;margin-bottom:8px">KYA AAPKO PATA THA?</div>
+        <h3 style="color:#fff">Raat ko padhai karna galat nahi hai.</h3>
+        <p style="color:#a5b4fc">Research says some children's brains are naturally more active after 9 PM. It's called a "late chronotype." If your child studies better at night — trust their body clock.</p>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:14px;opacity:.3" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="wa-card" style="background:linear-gradient(135deg,#422006,#78350f)">
+      <div class="wa-card-body">
+        <div style="font-size:8px;color:#fbbf24;letter-spacing:2px;font-weight:700;margin-bottom:8px">SMART PARENT TIP</div>
+        <h3 style="color:#fff">Marks mat poochho. Yeh poochho.</h3>
+        <p style="color:#fde68a">Instead of "kitne marks aaye?" try: "Aaj kya naya seekha?" or "Kaunsa question interesting laga?" It shifts your child's brain from fear of judgment to love of learning.</p>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:14px;opacity:.3" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="wa-card" style="background:linear-gradient(135deg,#7f1d1d,#991b1b)">
+      <div class="wa-card-body">
+        <div style="font-size:8px;color:#fca5a5;letter-spacing:2px;font-weight:700;margin-bottom:8px">EXAM SEASON</div>
+        <h3 style="color:#fff">Last 30 days mein yeh mat karo.</h3>
+        <p style="color:#fecaca">1) Naya topic mat shuru karo. 2) Raat bhar jaag ke mat padho — neend memory fix karti hai. 3) Dusron se compare mat karo. Apna revision plan follow karo. Bas.</p>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:14px;opacity:.3" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="wa-card" style="background:linear-gradient(135deg,#0c4a6e,#075985)">
+      <div class="wa-card-body">
+        <div style="font-size:8px;color:#7dd3fc;letter-spacing:2px;font-weight:700;margin-bottom:8px">FUNNY BUT TRUE</div>
+        <h3 style="color:#fff">Sharma ji ka beta vs Reality</h3>
+        <p style="color:#bae6fd">Sharma ji ka beta: "I only studied 2 hours." Translation: 2 hours of focused revision + 6 hours he's not counting + coaching notes + extra tuition. Beta, define "only."</p>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:14px;opacity:.3" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+
+    <div class="wa-card" style="background:linear-gradient(135deg,#064e3b,#065f46)">
+      <div class="wa-card-body">
+        <div style="font-size:8px;color:#6ee7b7;letter-spacing:2px;font-weight:700;margin-bottom:8px">SMART PARENT TIP</div>
+        <h3 style="color:#fff">Galti pe daanto mat. Galti pe clap karo.</h3>
+        <p style="color:#a7f3d0">When your child makes a mistake and FINDS it themselves — that's a bigger win. Say: "Achha pakda! Chalo ab fix karte hain." Watch their confidence double.</p>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:14px;opacity:.3" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     PARENTS VS REALITY (Bonus visual)
+     ═══════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge">BONUS · REEL CONCEPT VISUAL</div>
+    <div class="section-title">"Parents vs. Reality"</div>
+    <div class="section-subtitle">Split screen. Left: What parents think. Right: What actually happens. Students tag their parents. Parents tag their kids. Both sides share.</div>
+  </div>
+
+  <div class="card-row">
+    <div class="post" style="width:340px;height:500px;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)">
+      <div style="display:flex;flex-direction:column;height:100%">
+        <div style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.04);font-size:10px;color:#6366f1;letter-spacing:2px;font-weight:700;text-align:center">PARENTS vs REALITY</div>
+        <div style="flex:1;display:flex">
+          <div style="flex:1;border-right:1px solid rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;text-align:center">
+            <div style="font-size:9px;color:#2dd4bf;letter-spacing:2px;margin-bottom:10px;font-weight:700">PARENTS THINK</div>
+            <div style="font-size:32px;margin-bottom:6px">👨‍💻</div>
+            <div style="font-size:12px;color:#94a3b8;line-height:1.5">"Beta 3 ghante<br>se padh raha hai.<br>Bahut mehnat<br>karta hai."</div>
+            <div style="font-size:20px;margin-top:6px">🥲</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;text-align:center">
+            <div style="font-size:9px;color:#fb7185;letter-spacing:2px;margin-bottom:10px;font-weight:700">REALITY</div>
+            <div style="font-size:32px;margin-bottom:6px">📱</div>
+            <div style="font-size:11px;color:#94a3b8;line-height:1.6">
+              1 hr: "Best pen for<br>notes" YouTube<br><br>
+              45 min: Color-coded<br>notes organizing<br><br>
+              <span style="color:#2dd4bf;font-weight:700">15 min: Actually studying</span><br><br>
+              1 hr: "Reward break"
+            </div>
+            <div style="font-size:20px;margin-top:6px">💀</div>
+          </div>
+        </div>
+        <div style="padding:10px 16px;border-top:1px solid rgba(255,255,255,.04);text-align:center;font-size:12px;color:#2dd4bf;font-weight:600">
+          LearnX: 25 min. No distractions. Done. ✓
+        </div>
+      </div>
+      <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" class="logo-sm" style="height:18px" alt="LearnX" onerror="this.style.display='none'">
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     FULL SUMMARY
+     ═══════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge">THE FULL COLLECTION</div>
+    <div class="section-title">170+ Content Pieces Across 11 Series</div>
+    <div class="section-subtitle">Every piece follows a proven viral pattern. Every word written in Hinglish, emotion-first, for Indian parents and students.</div>
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="summary-card-num">15</div>
+      <div class="summary-card-title">Data Drops</div>
+      <div class="summary-card-desc">Blinkit-style one-stat posts with cheeky punchlines. Weekly Thursday series.</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-num">15</div>
+      <div class="summary-card-title">Student Confessions</div>
+      <div class="summary-card-desc">Notes-app raw confessions. "That's literally me" energy. Sunday series.</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-num">15</div>
+      <div class="summary-card-title">Overheard in Schools</div>
+      <div class="summary-card-desc">Chat-bubble dialogues with narrator punchlines. Thursday series.</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-num">15</div>
+      <div class="summary-card-title">Engagement Posts</div>
+      <div class="summary-card-desc">Wrong Answers Only + Finish This Sentence + This or That. Friday series.</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-num">12</div>
+      <div class="summary-card-title">Wrapped Cards</div>
+      <div class="summary-card-desc">Spotify-style personalized stats. Monthly drops. Parents share on stories.</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-num">20</div>
+      <div class="summary-card-title">Moment Marketing</div>
+      <div class="summary-card-desc">Amul-style topicals for IPL, exams, Diwali, Bollywood, and more.</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-num">25</div>
+      <div class="summary-card-title">Raw Tweets</div>
+      <div class="summary-card-desc">Zomato/Duolingo wit. 10 funny + 8 hot takes + 7 warm. Tuesday series.</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-num">15</div>
+      <div class="summary-card-title">Reel Scripts</div>
+      <div class="summary-card-desc">15-22s scripts with hooks, scene breakdowns, and captions. Monday series.</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-num">10</div>
+      <div class="summary-card-title">LinkedIn Posts</div>
+      <div class="summary-card-desc">Building stories + thought leadership + milestones with personality.</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-num">7</div>
+      <div class="summary-card-title">Launch Sequence</div>
+      <div class="summary-card-desc">7-day cultural moment. Full copy for 5 platforms each day.</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-num">20</div>
+      <div class="summary-card-title">WhatsApp Cards</div>
+      <div class="summary-card-desc">Standalone value cards parents forward. Zero CTA. Pure trust-building.</div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:40px;padding:24px;background:rgba(45,212,191,.04);border:1px solid rgba(45,212,191,.1);border-radius:12px;max-width:600px;margin-left:auto;margin-right:auto">
+    <div style="font-size:14px;color:#2dd4bf;font-weight:700;margin-bottom:8px">Patterns Behind Everything</div>
+    <div style="font-size:11px;color:#94a3b8;line-height:1.8">
+      Zomato's self-deprecating wit · Blinkit's bold one-stat billboards<br>
+      Swiggy's participation hooks · Spotify's personalized sharing<br>
+      Netflix India's meme-first approach · Amul's lightning-fast topicals<br>
+      Duolingo's unhinged personality · CRED's confusion marketing
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:32px;font-size:11px;color:#334155">
+    <img src="../../../../../../OneDrive/Pictures/LOGO-FINAL-PS.png" style="height:28px;opacity:.4;margin-bottom:8px;display:block;margin-left:auto;margin-right:auto" alt="LearnX" onerror="this.style.display='none'">
+    LearnX · Powering Endless Progress<br>
+    Full content files in /docs/social-media/
+  </div>
+</div>
+
+</body>
+</html>
