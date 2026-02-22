@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { TierProvider } from "@/context/TierContext";
-import { RoleProvider } from "@/context/RoleContext";
-import { LanguageProvider } from "@/context/LanguageContext";
 
 export const metadata: Metadata = {
-  title: "LearnX — K-12 Universal Course Engine",
-  description: "Every child learns differently. LearnX adapts to every age, every style, every dream.",
+  title: "LearnX Social Media Automation",
+  description: "365-day content calendar with daily auto-publishing across 10 platforms.",
 };
 
 export default function RootLayout({
@@ -16,15 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
-        <LanguageProvider>
-          <RoleProvider>
-            <TierProvider>
-              {children}
-            </TierProvider>
-          </RoleProvider>
-        </LanguageProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
